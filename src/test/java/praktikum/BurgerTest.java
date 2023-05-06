@@ -1,9 +1,6 @@
 package praktikum;
 
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.equalTo;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertEquals;
@@ -14,7 +11,6 @@ public class BurgerTest {
     Bun burgerBun = new Bun("black bun", 100F);
     Burger burger = new Burger();
     Ingredient burgerIngredient = new Ingredient(FILLING, "sausage", 300F);
-
 
     @Test
     public void shouldSetBun() {
@@ -42,11 +38,11 @@ public class BurgerTest {
         burger.addIngredient(burgerIngredient);
         int index = burger.ingredients.indexOf(burgerIngredient);
         burger.addIngredient(newBurgerIngredient);
-        int newIndex = (burger.ingredients.size()-1);
+        int newIndex = (burger.ingredients.size() - 1);
         burger.moveIngredient(index, newIndex);
         assertEquals(burger.ingredients.get(0).getType(), newBurgerIngredient.getType());
         assertEquals(burger.ingredients.get(0).getPrice(), newBurgerIngredient.getPrice(), 0);
         assertEquals(burger.ingredients.get(0).getName(), newBurgerIngredient.getName());
     }
 
- }
+}

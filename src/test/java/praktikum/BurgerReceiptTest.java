@@ -19,8 +19,9 @@ public class BurgerReceiptTest {
 
     @Spy
     Burger burger = new Burger();
+
     @Test
-    public void shouldGetReceipt(){
+    public void shouldGetReceipt() {
         Mockito.when(burgerBun.getName()).thenReturn("black bun");
         Mockito.when(burgerIngredient.getType()).thenReturn(FILLING);
         Mockito.when(burgerIngredient.getName()).thenReturn("sausage");

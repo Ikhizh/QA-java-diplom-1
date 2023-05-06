@@ -26,7 +26,6 @@ public class BunTest {
         };
     }
 
-
     @Test
     public void GetNameTest() {
         bun = new Bun(name, price);
