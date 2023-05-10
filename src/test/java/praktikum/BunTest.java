@@ -20,21 +20,21 @@ public class BunTest {
     @Parameterized.Parameters
     public static Object[][] getBuns() {
         return new Object[][]{
-                {"black bun", 100},
-                {"white bun", 200},
-                {"red bun", 300}
+                {"black bun", 0},
+                {" ", -10},
+                {"Красная булочка", 300}
         };
     }
 
     @Test
-    public void GetNameTest() {
+    public void getNameTest() {
         bun = new Bun(name, price);
         String actual = bun.getName();
         Assert.assertEquals(name, actual);
     }
 
     @Test
-    public void GetPriceTest() {
+    public void getPriceTest() {
         bun = new Bun(name, price);
         float actual = bun.getPrice();
         Assert.assertEquals(price, actual, 0);

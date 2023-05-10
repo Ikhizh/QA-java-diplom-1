@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static praktikum.IngredientType.FILLING;
@@ -13,15 +12,13 @@ import static praktikum.IngredientType.FILLING;
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerReceiptTest {
     @Mock
-    Bun burgerBun = new Bun("black bun", 100F);
+    Bun burgerBun;
     @Mock
-    Ingredient burgerIngredient = new Ingredient(FILLING, "sausage", 300F);
-
-    @Spy
-    Burger burger = new Burger();
+    Ingredient burgerIngredient;
 
     @Test
     public void shouldGetReceipt() {
+        Burger burger = new Burger();
         Mockito.when(burgerBun.getName()).thenReturn("black bun");
         Mockito.when(burgerIngredient.getType()).thenReturn(FILLING);
         Mockito.when(burgerIngredient.getName()).thenReturn("sausage");
