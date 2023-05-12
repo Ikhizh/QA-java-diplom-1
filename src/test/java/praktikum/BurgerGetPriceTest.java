@@ -7,22 +7,21 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-import static praktikum.IngredientType.FILLING;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerGetPriceTest {
     Burger burger = new Burger();
     @Mock
-    Bun burgerBun = new Bun("black bun", 100F);
+    Bun burgerBun;
     @Mock
-    Ingredient burgerIngredient = new Ingredient(FILLING, "sausage", 300F);
+    Ingredient burgerIngredient;
     @Mock
-    Ingredient secondIngredient = new Ingredient(FILLING, "cutlet", 100);
+    Ingredient secondIngredient;
     @Mock
-    Ingredient thirdIngredient = new Ingredient(FILLING, "dinosaur", 200);
+    Ingredient thirdIngredient;
 
     @Test
-    public void ShouldGetPrice() {
+    public void shouldGetPrice() {
         burger.setBuns(burgerBun);
         Mockito.when(burgerIngredient.getPrice()).thenReturn(100F);
         Mockito.when(secondIngredient.getPrice()).thenReturn(100f);
@@ -34,7 +33,6 @@ public class BurgerGetPriceTest {
         float actual = burger.getPrice();
         float expected = burgerBun.getPrice() * 2 + burgerIngredient.getPrice() + secondIngredient.getPrice() + thirdIngredient.getPrice();
         assertEquals(expected, actual, 0);
-        System.out.println(actual);
     }
 
 }
